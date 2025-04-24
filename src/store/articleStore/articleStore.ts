@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
-import type { Article, ArticleState } from "./types";
+import type { ArticleState } from "./types";
 
 export const useArticleStore = create<ArticleState>((set) => ({
-articles: [],
-loading: false,
-
-}))
+  articles: [],
+  loading: false,
+  fetchArticles: async () => {},
+}));
