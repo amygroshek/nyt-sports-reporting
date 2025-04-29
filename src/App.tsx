@@ -1,16 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { Post } from './pages/Post';
 import { PostList } from './pages/PostList';
-// import { fetchRecentSportsArticles } from './services/postSearch/index';
+import { useRedditApi } from '@/services/postSearch';
 
 import './App.css';
 
 function App() {
-  // useEffect(() => {
-  //   fetchRecentSportsArticles(true);
-  // }, []);
+  const { fetchLatestPosts } = useRedditApi();
+  useEffect(() => {
+    fetchLatestPosts();
+  }, []);
 
   return (
     <BrowserRouter>
