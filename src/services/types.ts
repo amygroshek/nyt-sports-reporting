@@ -1,18 +1,28 @@
-export type ApiError =
-  | {
-      message: string;
-      status: number;
-    }
-  | {
-      error: string;
-      status: number;
-      errors: Array<{ field: string; message: string }>;
-    }
-  | {
-      status: number;
-      error: {
-        code: string;
-        message: string;
-        fields?: Array<{ field: string; message: string }>;
-      };
-    };
+export type RedditPost = {
+  data: {
+    author: string;
+    media: unknown;
+    media_embed: unknown;
+    num_comments: number;
+    permalink: string;
+    selftext: string;
+    selftext_html: string;
+    subreddit: string;
+    subreddit_id: string;
+    subreddit_subscribers: number;
+    subreddit_type: string;
+    thumbnail: string;
+    thumbnail_height: number;
+    thumbnail_width: number;
+    title: string;
+    ups: number;
+    upvote_ratio: number;
+    url: string;
+  };
+};
+
+export type RedditApiResponse = {
+  data: {
+    children: RedditPost[];
+  };
+};
