@@ -5,3 +5,7 @@
  */
 export const formatDateForQuery = (d: Date) =>
   d.toISOString().split("T")[0].replace(/-/g, "");
+
+export const validatePreface = (preface: string, index: number): string => {
+  return index > 0 ? ` ${preface} ` : '';
+};
