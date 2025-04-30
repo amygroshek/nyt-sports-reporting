@@ -1,24 +1,4 @@
-export type Post = {
-  created_utc: number; // UNIX timestamp
-  author: string;
-  media: unknown;
-  media_embed: unknown;
-  num_comments: number;
-  permalink: string;
-  selftext: string;
-  selftext_html: string;
-  subreddit: string;
-  subreddit_id: string;
-  subreddit_subscribers: number;
-  subreddit_type: string;
-  thumbnail: string;
-  thumbnail_height: number;
-  thumbnail_width: number;
-  title: string;
-  ups: number;
-  upvote_ratio: number;
-  url: string;
-};
+import type { Post } from '@/types';
 
 export type CloudSetItem = {
   value: string;
@@ -36,4 +16,5 @@ export type PostState = {
   setCloudSelection: (word: string | null) => void;
   posts: Post[];
   setPosts: (posts: Post[]) => void;
+  getPostById: (id: string) => Post | undefined;
 };

@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { usePostStore } from '@/store/postStore';
-// import { cleanHtml } from './utils';
-import { truncateAtWordBoundary } from './utils';
+import { getFormattedDate, truncateAtWordBoundary } from '@/utils';
 
 export const SelectedKeywordList = () => {
   const posts = usePostStore((state) => state.posts);
@@ -18,7 +17,6 @@ export const SelectedKeywordList = () => {
 
   // Return a list of items
   // Each one is a link to a details page
-  // Each one displayse
   return (
     <>
       <h2>{`Selected keyword: ${cloudSelection}`}</h2>
@@ -27,16 +25,10 @@ export const SelectedKeywordList = () => {
           displayPosts?.map((item) => {
             return (
               <li key={item.subreddit_id}>
-                <Link to={`/post/${item.subreddit_id}`}>
-                  <span>{item.author}</span>
-                  <span>{item.title}</span>
-                  <span>{item.created_utc}</span>
+                <Link to={`/post/${item.id}`}>
+                  <div className="title">{item.title}</div>
+                  <div className="meta">{`By ${item.author} on ${getFormattedDate(item.created_utc)}`}</div>
                   <span>{truncateAtWordBoundary(item.selftext, 100)}</span>
-                  {/* <div
-                  dangerouslySetInnerHTML={{
-                    __html: cleanHtml(item.selftext_html),
-                  }}
-                ></div> */}
                 </Link>
               </li>
             );

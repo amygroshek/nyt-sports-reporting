@@ -7,7 +7,7 @@ import {
   REDDIT_USER_AGENT,
 } from './constants';
 
-import { RedditApiResponse, RedditPost } from '../types';
+import { RedditApiResponse, RedditPost } from '../../types';
 
 export const useRedditApi = () => {
   const { setPosts, setCloudLoading, setCloudError } = usePostStore(
@@ -36,12 +36,14 @@ export const useRedditApi = () => {
 
       const data: RedditApiResponse = await response.json();
 
-      // console.log('data: ', data);
+      // console.log('data: ', data); // TODO: REMOVE
 
       const posts = data.data.children.map((item: RedditPost) => {
         const _item = item.data;
         // Reduce object size to save memory
         return {
+          id: _item.id,
+          name: _item.name,
           created_utc: _item.created_utc,
           author: _item.author,
           media: _item.media,
@@ -61,6 +63,7 @@ export const useRedditApi = () => {
           ups: _item.ups,
           upvote_ratio: _item.upvote_ratio,
           url: _item.url,
+          media_metadata: _item.media_metadata,
         };
       });
 
@@ -75,6 +78,7 @@ export const useRedditApi = () => {
     }
   };
 
+  // TODO: Remove
   // const searchPosts = async (subreddit: string, query: string) => {
   //   setLoading(true);
   //   try {

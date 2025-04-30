@@ -5,7 +5,7 @@ import { Post } from './pages/Post';
 import { PostList } from './pages/PostList';
 import { useRedditApi } from '@/services/postSearch';
 
-import './App.css';
+// import './App.css';
 
 function App() {
   const { fetchLatestPosts } = useRedditApi();
