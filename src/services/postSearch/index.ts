@@ -1,13 +1,11 @@
-// 1. Fetch last 100 posts	GET https://www.reddit.com/r/vanlife/new.json?limit=100	No auth
-// 2. Build word cloud	Extract title + selftext from each post	Use local processing
-// 3. User selects word	Filter memory OR new search
-// 4. Fetch search results	GET https://www.reddit.com/r/vanlife/search.json?q={word}&restrict_sr=1&sort=relevance
-
-// src/hooks/useRedditApi.ts
 import { usePostStore } from '@/store/postStore';
 import { useShallow } from 'zustand/shallow';
 
-import { REDDIT_BASE_URL, REDDIT_SUBREDDIT } from './constants';
+import {
+  REDDIT_BASE_URL,
+  REDDIT_SUBREDDIT,
+  REDDIT_USER_AGENT,
+} from './constants';
 
 import { RedditApiResponse, RedditPost } from '../types';
 
@@ -21,14 +19,13 @@ export const useRedditApi = () => {
   );
 
   const fetchLatestPosts = async (limit = 100): Promise<void> => {
-    console.log('fetchLatestPosts');
     setCloudLoading(true);
     try {
       const response = await fetch(
         `${REDDIT_BASE_URL}/r/${REDDIT_SUBREDDIT}/new.json?limit=${limit}`,
         {
           headers: {
-            'User-Agent': 'vanlife-wordcloud-app/0.1 by brokenindexfinger', // Reddit etiquette
+            'User-Agent': REDDIT_USER_AGENT,
           },
         }
       );
@@ -39,9 +36,13 @@ export const useRedditApi = () => {
 
       const data: RedditApiResponse = await response.json();
 
+      // console.log('data: ', data);
+
       const posts = data.data.children.map((item: RedditPost) => {
         const _item = item.data;
+        // Reduce object size to save memory
         return {
+          created_utc: _item.created_utc,
           author: _item.author,
           media: _item.media,
           media_embed: _item.media_embed,
@@ -81,7 +82,7 @@ export const useRedditApi = () => {
   //       `${BASE_URL}/r/${subreddit}/search.json?q=${encodeURIComponent(query)}&restrict_sr=1&sort=relevance&limit=50`,
   //       {
   //         headers: {
-  //           'User-Agent': 'vanlife-wordcloud-app/0.1 by yourusername',
+  //           'User-Agent': REDDIT_USER_AGENT,
   //         },
   //       }
   //     );

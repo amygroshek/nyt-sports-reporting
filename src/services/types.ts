@@ -1,5 +1,6 @@
 export type RedditPost = {
   data: {
+    created_utc: number; // UNIX timestamp
     author: string;
     media: unknown;
     media_embed: unknown;
