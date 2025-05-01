@@ -5,7 +5,7 @@ export const getFormattedDate = (unixTimestamp: number): string => {
 };
 
 // Decode encoded string to get raw HTML
-const decodeHtml = (html: string) => {
+export const decodeHtml = (html: string) => {
   const txt = document.createElement('textarea');
   txt.innerHTML = html;
   return txt.value;
@@ -13,9 +13,12 @@ const decodeHtml = (html: string) => {
 
 // Remove extraneous HTML comments from reddit html
 export const cleanHtml = (text: string) => {
-  return decodeHtml(
-    text?.replace('<!-- SC_OFF -->', '').replace('<!-- SC_ON -->', '') ?? ''
-  );
+  return text
+    ? decodeHtml(text)
+        .replace('<!-- SC_OFF -->', '')
+        .replace('<!-- SC_ON -->', '')
+    : '';
+
 };
 
 // Truncate string at the word boundary preceding maxLength
