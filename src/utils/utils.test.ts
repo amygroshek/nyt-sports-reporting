@@ -1,10 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import {
-  getFormattedDate,
-  cleanHtml,
-  truncateAtWordBoundary,
-  decodeHtml,
-} from './';
+
+import { cleanHtml, decodeHtml } from './';
+import { getFormattedDate } from './getFormattedDate';
+import { truncateAtWordBoundary } from './truncateAtWordBoundary';
 
 describe('getFormattedDate', () => {
   it('formats a unix timestamp correctly', () => {

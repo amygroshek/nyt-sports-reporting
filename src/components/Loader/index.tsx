@@ -10,6 +10,7 @@ export const Loader = ({
 }) => {
   return (
     <div
+      data-testid="loader"
       className={clsx(
         'loader',
         styles.vanContainer,

@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { SiSlickpic } from 'react-icons/si';
 
 import { usePostStore } from '@/store/postStore';
-import { getFormattedDate, truncateAtWordBoundary } from '@/utils';
+import { getFormattedDate } from '@/utils/getFormattedDate';
+import { truncateAtWordBoundary } from '@/utils/truncateAtWordBoundary';
 
 export const SelectedKeywordList = () => {
   const posts = usePostStore((state) => state.posts);
@@ -22,7 +23,9 @@ export const SelectedKeywordList = () => {
     <section className="max-w-3xl mx-auto">
       <h2 className="text-3xl text-bold font-cabin-sketch-regular text-primary mb-4">
         Selected keyword:{' '}
-        <span className="italic text-vangreen">{cloudSelection}</span>
+        <span className="italic text-vangreen" data-testid="cloud-selection">
+          {cloudSelection}
+        </span>
       </h2>
 
       <ul className="space-y-4 selected-keyword-list">

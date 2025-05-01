@@ -1,7 +1,8 @@
 import { clsx } from 'clsx';
 
 import type { Post } from '@/types';
-import { cleanHtml, getFormattedDate } from '@/utils';
+import { cleanHtml } from '@/utils';
+import { getFormattedDate } from '@/utils/getFormattedDate';
 import { ResponsiveImageList } from '@/components/ResponsiveImageList';
 import styles from './PostDetails.module.scss';
 
