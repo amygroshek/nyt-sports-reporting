@@ -2,6 +2,8 @@
 
 A fun, largely meaningless app that pulls posts from subreddit VanLife. Word clouds are a very primitive kind of data visualization, which can give the user a sense of common topics (or, at the very least, verbs and proper nouns) in a body of text.
 
+I chose whimsical fonts and a woodsy, adventurous color scheme. To add to the whimsical theme I added "startup" and "idle" animations to the the van icon in the header text.
+
 ## Local Dev
 
 Clone `main` branch and use npm to install depenencies and run the app.
@@ -25,4 +27,5 @@ The server output will tell you what port it's running on.
 
 - [ ] Error boundaries for routes, with error page
 - [ ] a11y testing
+- [ ] custom renderer for items in the wordcloud, so I can give them a proper button role and dynamically control font size to make the wordcloud responsive
 
