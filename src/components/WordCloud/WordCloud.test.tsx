@@ -137,7 +137,7 @@ describe('WordCloud', () => {
     expect(mockSetCloudSelection).toHaveBeenCalledWith('test');
   });
 
-  // TODO: Should render an error component when empty
+  // TODO: Should render an error component when error or empty array
   //   it('renders empty TagCloud when cloudSet is empty', () => {
   //     vi.mocked(usePostStore).mockImplementation((selector) =>
   //       selector({

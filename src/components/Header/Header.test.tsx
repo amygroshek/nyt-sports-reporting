@@ -7,14 +7,6 @@ vi.mock('react-icons/pi', () => ({
   PiVanDuotone: () => <span data-testid="van-icon" />,
 }));
 
-// Mock the CSS module
-vi.mock('./Header.module.scss', () => ({
-  default: {
-    vanStart: 'mocked-van-start',
-    vanIdle: 'mocked-van-idle',
-  },
-}));
-
 describe('Header', () => {
   beforeEach(() => {
     vi.useFakeTimers();

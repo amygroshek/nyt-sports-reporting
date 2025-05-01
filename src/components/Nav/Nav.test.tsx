@@ -8,14 +8,6 @@ vi.mock('react-icons/fa6', () => ({
   FaVanShuttle: () => <span data-testid="van-shuttle-icon" />,
 }));
 
-// Mock the CSS module
-vi.mock('./Nav.module.scss', () => ({
-  default: {
-    vanStart: 'mocked-van-start',
-    vanIdle: 'mocked-van-idle',
-  },
-}));
-
 const renderWithRouter = (component: React.ReactNode) => {
   return render(<MemoryRouter>{component}</MemoryRouter>);
 };

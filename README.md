@@ -1,5 +1,6 @@
 ## Tooling Decisions
 
+- Vite: Y'all didn't say you wanted nextjs, so I'm taking you literally when you say "SPA"
 - [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction) for state management and minimal wrapper for data fetching (2-3 API requests, RTK Query or Redux would be overkill)
 - CSS Modules: Faster render than CSS-in-JS and I appreciate the simplicity
 - Tailwind: For basic layout utilities and color scheme management
@@ -8,8 +9,8 @@
 
 ## TODO
 
-- [] Error boundaries for routes, with error page
-- [] a11y testing
+- [ ] Error boundaries for routes, with error page
+- [ ] a11y testing
 
 ## The Assignment
 

@@ -22,13 +22,6 @@ vi.mock('@/components/ResponsiveImageList', () => ({
   )),
 }));
 
-// Mock the CSS module
-vi.mock('./PostDetails.module.scss', () => ({
-  default: {
-    dangerousInnerHtml: 'mocked-dangerous-html-class',
-  },
-}));
-
 describe('PostDetails', () => {
   const createMockPost = (overrides = {}): Post => ({
     id: '1',
