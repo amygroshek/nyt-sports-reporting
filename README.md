@@ -6,6 +6,11 @@
 - react-tagcloud: To generate the word cloud
 - clsx: very nice, very simple util for cleaning up classname concatenation, logic
 
+## TODO
+
+- [] Error boundaries for routes, with error page
+- [] a11y testing
+
 ## The Assignment
 
 ### The goal

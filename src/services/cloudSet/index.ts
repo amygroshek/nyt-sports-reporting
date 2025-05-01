@@ -36,7 +36,7 @@ export const generateCloudSet = (posts: Post[]) => {
   // Convert to react-wordcloud format
   const cloudSetData: CloudSetItem[] = Object.entries(wordFreq)
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    .filter(([word, freq]) => freq > MIN_WORD_FREQUENCY)
+    .filter(([_, freq]) => freq > MIN_WORD_FREQUENCY)
     .map(([word, freq]) => {
       return {
         value: word,
