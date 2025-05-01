@@ -27,5 +27,5 @@ The server output will tell you what port it's running on.
 
 - [ ] Error boundaries for routes, with error page
 - [ ] a11y testing
-- [ ] custom renderer for items in the wordcloud, so I can give them a proper button role and dynamically control font size to make the wordcloud responsive
+- [ ] custom renderer for items in the wordcloud, so I can give them a proper button role, proper color contrast, and dynamically control font size to make the wordcloud responsive
 
