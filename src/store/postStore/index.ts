@@ -17,8 +17,6 @@ export const usePostStore = create<PostState>()(
     },
     getPostById: (id: string) =>
       get().posts.find((post: Post) => post.id === id),
-    postsLoading: true,
-    postsError: null,
     cloudLoading: true,
     setCloudLoading: (val: boolean) => set({ cloudLoading: val }),
     cloudSet: [],

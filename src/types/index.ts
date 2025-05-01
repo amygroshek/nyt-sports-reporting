@@ -23,8 +23,6 @@ export type Post = {
   media_metadata: RedditMediaMetadata;
 };
 
-
-
 export interface RedditImagePreview {
   x: number;
   y: number;
@@ -32,12 +30,12 @@ export interface RedditImagePreview {
 }
 
 export interface RedditImage {
-  e: 'Image'; // type of media
+  e: 'Image';
   id: string;
   m: string; // MIME type like 'image/jpg'
-  p: RedditImagePreview[]; // preview sizes
+  p: RedditImagePreview[]; // Preview sizes
   s: {
-    u: string; // full-size image URL
+    u: string; // Full-size image URL
     x: number;
     y: number;
   };

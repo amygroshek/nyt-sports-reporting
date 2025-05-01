@@ -1,5 +1,5 @@
 {
-  "name": "nyt-sports-reporting",
+  "name": "vanlife-wordcloud",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.5",
+    "clsx": "^2.1.1",
     "immer": "^10.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -18,28 +19,33 @@
     "react-router-dom": "^7.5.3",
     "react-tagcloud": "^2.3.3",
     "sanitize-html": "^2.16.0",
+    "tailwindcss": "^4.1.5",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/react-tagcloud": "^2.3.2",
     "@types/sanitize-html": "^2.15.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/ui": "^3.1.2",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.22.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
-    "postcss": "^8.5.3",
+    "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
     "sass": "^1.87.0",
-    "tailwindcss": "^4.1.4",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.2"
   },
   "prettier": {
     "tabWidth": 2,

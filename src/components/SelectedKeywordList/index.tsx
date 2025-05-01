@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { SiSlickpic } from 'react-icons/si';
 
 import { usePostStore } from '@/store/postStore';
 import { getFormattedDate, truncateAtWordBoundary } from '@/utils';
@@ -18,22 +19,40 @@ export const SelectedKeywordList = () => {
   // Return a list of items
   // Each one is a link to a details page
   return (
-    <>
-      <h2>{`Selected keyword: ${cloudSelection}`}</h2>
-      <ul>
+    <section className="max-w-3xl mx-auto">
+      <h2 className="text-3xl text-bold font-cabin-sketch-regular text-primary mb-4">
+        Selected keyword:{' '}
+        <span className="italic text-vangreen">{cloudSelection}</span>
+      </h2>
+
+      <ul className="space-y-4 selected-keyword-list">
         {displayPosts?.length > 0 &&
           displayPosts?.map((item) => {
             return (
-              <li key={item.subreddit_id}>
-                <Link to={`/post/${item.id}`}>
-                  <div className="title">{item.title}</div>
-                  <div className="meta">{`By ${item.author} on ${getFormattedDate(item.created_utc)}`}</div>
-                  <span>{truncateAtWordBoundary(item.selftext, 100)}</span>
+              <li
+                key={`item-${item.id}`}
+                className="bg-vantan p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              >
+                <Link to={`/post/${item.id}`} className="block">
+                  <div className="title font-bold text-2xl text-primary font-cabin-sketch-regular mb-1">
+                    {item.title}
+                  </div>
+                  <div
+                    className={`meta text-2xl text-vantext mb-2 font-reenie-beanie-regular`}
+                  >
+                    {`By ${item.author} on ${getFormattedDate(item.created_utc)}`}
+                    {item.media_metadata && (
+                      <SiSlickpic className="inline ml-2 text-xl" />
+                    )}
+                  </div>
+                  <p className="text-vantext">
+                    {truncateAtWordBoundary(item.selftext, 100)}
+                  </p>
                 </Link>
               </li>
             );
           })}
       </ul>
-    </>
+    </section>
   );
 };

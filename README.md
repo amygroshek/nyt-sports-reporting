@@ -1,12 +1,10 @@
 ## Tooling Decisions
 
 - [Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction) for state management and minimal wrapper for data fetching (2-3 API requests, RTK Query or Redux would be overkill)
-- CSS Modules TODO
-- Tailwind TODO
-
-## Interesting Tidbits
-
-- There is no keyword in the nyt sports articles indicating that the article is about women's sports
+- CSS Modules: Faster render than CSS-in-JS and I appreciate the simplicity
+- Tailwind: For basic layout utilities and color scheme management
+- react-tagcloud: To generate the word cloud
+- clsx: very nice, very simple util for cleaning up classname concatenation, logic
 
 ## The Assignment
 
@@ -43,3 +41,4 @@ Our team is excited to see your programming style, skill, approach, and creativi
  ### Hint
 
  We're a senior group of folks who see software as a craft. We'll be looking for well-structured code that follows best practices, is tested, doesn't have errors, is commented appropriately (e.g. comment your public interfaces), considers edge cases, and demonstrates your creativity and love of software.
+

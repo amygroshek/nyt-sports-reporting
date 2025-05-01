@@ -113,4 +113,7 @@ export const excludeWords = new Set([
   'anything',
   'having',
   'anyone',
+  'everyone',
+  'myself',
+  'really',
 ]);
