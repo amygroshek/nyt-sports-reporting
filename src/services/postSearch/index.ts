@@ -1,5 +1,4 @@
 import { usePostStore } from '@/store/postStore';
-import { useShallow } from 'zustand/shallow';
 
 import {
   REDDIT_BASE_URL,
@@ -10,13 +9,9 @@ import {
 import { RedditApiResponse, RedditPost } from '../../types';
 
 export const useRedditApi = () => {
-  const { setPosts, setCloudLoading, setCloudError } = usePostStore(
-    useShallow((state) => ({
-      setPosts: state.setPosts,
-      setCloudLoading: state.setCloudLoading,
-      setCloudError: state.setCloudError,
-    }))
-  );
+  const setPosts = usePostStore((state) => state.setPosts);
+  const setCloudLoading = usePostStore((state) => state.setCloudLoading);
+  const setCloudError = usePostStore((state) => state.setCloudError);
 
   const fetchLatestPosts = async (limit = 100): Promise<void> => {
     setCloudLoading(true);

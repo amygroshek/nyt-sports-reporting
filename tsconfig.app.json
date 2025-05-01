@@ -23,7 +23,8 @@
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vitest", "node"]
   },
-  "include": ["src", "scss.d.ts"]
+  "include": ["src", "scss.d.ts", "vitest.setup.ts"]
 }

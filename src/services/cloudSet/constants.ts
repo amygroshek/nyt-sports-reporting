@@ -1,5 +1,5 @@
 // Filter out common articles and shared keywords
-export const excludeWords = new Set([
+export const EXCLUDE_WORDS = new Set([
   'a',
   'an',
   'and',
@@ -117,3 +117,6 @@ export const excludeWords = new Set([
   'myself',
   'really',
 ]);
+
+export const MIN_WORD_COUNT = 5;
+export const MIN_WORD_FREQUENCY = 5;

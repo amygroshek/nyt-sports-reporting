@@ -1,13 +1,14 @@
-import type { Post, CloudSetItem } from '@/store/postStore/types';
-import { excludeWords } from './constants';
+import type { CloudSetItem } from '@/store/postStore/types';
+import type { Post } from '@/types';
+import { EXCLUDE_WORDS, MIN_WORD_COUNT, MIN_WORD_FREQUENCY } from './constants';
 
 // Standardize and remove excluded words
-const cleanText = (text: string): string => {
+export const cleanText = (text: string): string => {
   return text
     .toLowerCase()
     .replace(/[^\w\s]/g, '') // Remove punctuation
     .split(/\s+/)
-    .filter((word) => !excludeWords.has(word) && word.length > 5) // Not present in excluded list and greater in length than 2 chars
+    .filter((word) => !EXCLUDE_WORDS.has(word) && word.length > MIN_WORD_COUNT) // Not present in excluded list and greater in length than 2 chars
     .join(' ');
 };
 
@@ -18,11 +19,12 @@ export const generateCloudSet = (posts: Post[]) => {
   // Construct a big string of titles and selftext
   let allText = '';
   posts.forEach((post: Post) => {
-    allText += cleanText(post.title) + ' ' + cleanText(post.selftext);
+    allText += ' ' + cleanText(post.title) + ' ' + cleanText(post.selftext);
   });
 
   // Determine word frequencies, construct array of objects
   const words = allText.trim().split(/\s+/);
+
   const wordFreq: { [key: string]: number } = {};
   words.forEach((word) => {
     if (word) {
@@ -34,7 +36,7 @@ export const generateCloudSet = (posts: Post[]) => {
   // Convert to react-wordcloud format
   const cloudSetData: CloudSetItem[] = Object.entries(wordFreq)
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    .filter(([word, freq]) => freq > 5)
+    .filter(([word, freq]) => freq > MIN_WORD_FREQUENCY)
     .map(([word, freq]) => {
       return {
         value: word,
